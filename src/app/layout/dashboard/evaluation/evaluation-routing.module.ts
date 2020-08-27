@@ -10,6 +10,7 @@ const routes: Routes = [
 children:[
   { path: '', redirectTo:'home',pathMatch:'full'},
   { path: 'home',component:DetailsPageComponent },
+  { path: 'details/:id/:isEditable', component: HomeComponent },
   { path: 'details/:id',component:HomeComponent },
 
 ] },

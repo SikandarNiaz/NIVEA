@@ -23,7 +23,9 @@
                     </ngx-image-zoom> -->
 
                     <label class="title" for="title">{{selectedImage?.title}}</label>
-                    <img src="{{ip}}{{selectedImage?.url}}" class="img-thumbnail" style="        height: 450px;  width: 100%;  " (click)="showChildModal(selectedImage)">
+                    
+                        <img src="{{ip}}{{selectedImage?.url}}" class="img-thumbnail" style="        height: 450px;  width: 100%;  " (click)="showChildModal(selectedImage)">
+                   
                     <div class="row justify-content-center" style="word-break: break-word !important">
                 <div>
                     <div for="cat" class="cat" style="word-break: break-word"><strong>Remarks: </strong>{{selectedImage?.shopRemarks}}</div>
@@ -36,6 +38,7 @@
                     <div class="row">
     
                         <ng-container *ngFor="let img of data?.imageList ;let i=index ">
+                            <ng-container *ngIf="img?.url!='' else elseImageBlock">
                             <div class="col-2 mb-1 card  mt-5 mr-2" (click)="setSelectedImage(img)" style="padding: 0% !important;cursor:pointer" [ngClass]="{'bgColor': img?.url==selectedImage.url}">
                                 <img src="{{ip}}{{img?.url}} " width="100" class="img-thumbnail side-image" style="height: 80px !important;width: 120px !important;">
                                 <!-- <div class="row justify-content-center" style="word-break: break-word !important">
@@ -50,6 +53,13 @@
                                 </div> -->
                                 <!--  -->
                             </div>
+                            </ng-container>
+                            <ng-template #elseImageBlock>
+                                <div class="col-2 mb-1 card  mt-5 mr-2"  style="padding: 0% !important;" >
+                                    <img src="{{ip}}/images/TradeTraker Final.jpg " width="100" class="img-thumbnail side-image" style="height: 80px !important;width: 120px !important;">
+                               
+                                </div>
+                                </ng-template>
                             <!-- <div class="col-md-3" style="font-size:15px !important" (click)="setSelectedImage(img)"> -->
     
     
@@ -100,7 +110,6 @@
                         <th>Product Title</th>
                         <th>Availability
                         </th>
-                        <th>A.Facing</th>
 
                     </tr>
                 </thead>
@@ -119,15 +128,15 @@
                             {{updateString(product?.available_sku)}}
                         </td>
                         
-                        <td style="width:100px !important" >
-                            {{product?.face_unit}}</td>
+                        <!-- <td style="width:100px !important" >
+                            {{product?.face_unit}}</td> -->
                         </ng-container>
 
                         <ng-container *ngIf="isEditable==true">
                             <td style="cursor:pointer" (click)="changeSku(product)" [ngClass]="{'background-color': product?.MSL=='Yes'}">
                             {{updateString(product?.available_sku)}}</td>
-                                <td style="width:100px !important" [ngStyle]="{'background-color':product.color}">    
-                                    <input type="number" [(ngModel)]="product.face_unit" maxlength="3"  style="width: 4em" (blur)="changeFacing(product)"/></td>
+                                <!-- <td style="width:100px !important" [ngStyle]="{'background-color':product.color}">    
+                                    <input type="number" [(ngModel)]="product.face_unit" maxlength="3"  style="width: 4em" (blur)="changeFacing(product)"/></td> -->
 
                         </ng-container>
                         
@@ -140,7 +149,7 @@
                         <!-- <td></td> -->
                         <th>Availability / Total</th>
                         <td>{{availability}} / {{products.length}}</td>
-                        <td>{{facing}}</td>
+                        <!-- <td>{{facing}}</td> -->
                         <!-- <th>
                             {{MSLNAvailabilityCount}} / {{MSLCount}}
                         </th> -->

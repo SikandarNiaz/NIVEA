@@ -30,8 +30,8 @@ export class MerchandiserListComponent implements OnInit {
 
   ngOnInit() {
     this.loadingData = false;
-    this.getMerchandiserList(this.startDate);
     this.userTypeId = localStorage.getItem('user_type');
+    this.getMerchandiserList(this.startDate);
     this.sortIt('m_code');
   }
 

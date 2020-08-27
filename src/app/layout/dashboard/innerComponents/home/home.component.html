@@ -1,9 +1,16 @@
 <div class="container-fluid web-view">
     <!-- <p>web view</p> -->
     <div *ngIf="!loading" class="mb-20 animated  slideInLeft" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="10px">
+      
         <div class="row">
             <div class="col-md-12">
+                
                 <mat-card>
+                    <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
+                        <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="getData()">
+                            <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                     <mat-card-header style="justify-content: flex-end;">
                         <mat-card-title>
                             <i class="material-icons refresh-btn" matTooltip="Refresh Stats" (click)="getData()">
@@ -21,13 +28,13 @@
                             </div>
                             <div class="col-md-2">
                                 <div>
-                                    <app-stat [bgClass]="'warn'" [icon]="'check_circle'" [count]="tabsData?.completed" [label]="'Productive'">
+                                    <app-stat [bgClass]="'warn'" [icon]="'check_circle'" [count]="tabsData?.completed" [label]="'Visited'">
                                     </app-stat>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div>
-                                    <app-stat [bgClass]="'success'" [icon]="'thumb_up'" [count]="tabsData?.successful" [label]="'Successful'"></app-stat>
+                                    <app-stat [bgClass]="'success'" [icon]="'thumb_up'" [count]="tabsData?.successful" [label]="'Productive'"></app-stat>
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -224,23 +231,23 @@
 
 
 
-            <mat-card style="margin-top:15px">
+            <!-- <mat-card style="margin-top:15px">
                 <mat-card-header>
                     <mat-card-title>SOS</mat-card-title>
                 </mat-card-header>
 
-                <mat-card-content>
+                <mat-card-content> -->
                     <!-- <div class="chart">
                                         <canvas baseChart [data]="pieChartData2" [labels]="pieChartLabels2" [chartType]="pieChartType" [options]="pieChartOptions" [colors]="pieChartColors2" [legend]="pieChartLegend">
                                                                     </canvas>
                                     </div> -->
 
-                    <div style="display: block">
+                    <!-- <div style="display: block">
                         <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="doughnutChartOptions" [colors]="pieChartColors2 ">
                                             </canvas>
                     </div>
                 </mat-card-content>
-            </mat-card>
+            </mat-card> -->
 
 
         </div>

@@ -45,8 +45,9 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('zoneId', res.user.zone_id);
             localStorage.setItem('menu', JSON.stringify(res.list));
             localStorage.setItem('Reevaluator', res.ReEvaluator);
+            localStorage.setItem('Evaluator', res.Evaluator);
             // tslint:disable-next-line:triple-equals
-            if (res.user.typeID == 16 || res.user.typeID == res.ReEvaluator) {
+            if (res.user.typeID == res.Evaluator || res.user.typeID == res.ReEvaluator) {
             this.router.navigate(['/dashboard/merchandiser_List']);
             } else {
             this.router.navigate(['/dashboard']);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { DashboardService } from '../../dashboard.service';
+import { ToastrService } from 'ngx-toastr';
 import { ChartType, ChartOptions } from 'chart.js';
 import * as moment from 'moment';
 declare const google: any;
@@ -23,17 +24,19 @@ import { positionElements } from 'ngx-bootstrap';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private httpService: DashboardService, private router: Router) { }
+  constructor(private httpService: DashboardService, private router: Router,private toastr: ToastrService) { }
 
   tabsData: any = [];
   loading = true;
   date = Date();
+  regions:any=[];
+  selectedRegion:any={};
 
 
 
 
 // doughnut chart
-public doughnutChartLabels: any[] = ['Haleeb', 'Competition', ];
+public doughnutChartLabels: any[] = ['NIVEA', 'Competition', ];
   public doughnutChartData: any = [
     [350, 450]
   ];
@@ -107,6 +110,7 @@ public pieChartColors2 = [
 
   ngOnInit() {
     this.getData();
+    this.getAllRegions();
     interval(300000).subscribe(i => {this.getData(); });
     this.httpService.checkDate();
     // this.initMap()
@@ -115,6 +119,7 @@ public pieChartColors2 = [
     if (userType === 16) {
       this.router.navigate(['/dashboard/merchandiser_List']);
     }
+   
   }
 public chartClicked( e: any ): void {
   if (e.active.length > 0) {
@@ -143,7 +148,7 @@ public chartClicked( e: any ): void {
     const obj: any = {
       typeId: localStorage.getItem('user_type'),
       startDate: moment(d).format('YYYY-MM-DD'),
-      regionId: localStorage.getItem('regionId'),
+      regionId: this.selectedRegion.id || localStorage.getItem('regionId'),
       zoneId: localStorage.getItem('zoneId'),
       endDate: moment(d).format('YYYY-MM-DD'),
       userId: localStorage.getItem('user_id'),
@@ -227,4 +232,29 @@ public chartClicked( e: any ): void {
   //   // map.fitBounds(bounds);
 
   // }
+
+  getAllRegions() {
+    this.loading = true;
+    this.httpService.getRegions().subscribe(
+      data => {
+        const res: any = data;
+        if (res.regionList) {
+          this.regions = res.regionList;
+          // localStorage.setItem('regionList', JSON.stringify(res.regionList));
+        }
+        if (!res.regionList) {
+          this.toastr.info('No data Found', 'Info');
+        }
+        this.loading = false;
+
+
+      },
+      error => {
+       this.loading=false;
+        error.status === 0 ? this.toastr.error('Please check Internet Connection', 'Error') : this.toastr.error(error.description, 'Error');
+      }
+    );
+
+
+  }
 }
