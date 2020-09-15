@@ -34,6 +34,7 @@ import { MerchandiserPlannedCallsComponent } from './innerComponents/merchandise
 import { DashboardTableauComponent } from './Tableau/dashboard-tableau/dashboard-tableau.component';
 import { ProductivityTableauComponent } from './Tableau/productivity-tableau/productivity-tableau.component';
 import { SkuDashboardComponent } from './Tableau/sku-dashboard/sku-dashboard.component';
+import { VoErrorReportComponent } from './innerComponents/vo-error-report/vo-error-report.component';
 const routes: Routes = [
     {
         path: '',
@@ -69,8 +70,8 @@ const routes: Routes = [
             {path: 'merchandiser-planned-calls', component: MerchandiserPlannedCallsComponent},
             {path: 'dashboard-tableau', component: DashboardTableauComponent},
             {path: 'productivity-tableau', component: ProductivityTableauComponent},
-            {path: 'sku-dashboard', component: SkuDashboardComponent}
-
+            {path: 'sku-dashboard', component: SkuDashboardComponent},
+            {path: 'vo_error_report', component: VoErrorReportComponent}
 
 
 
