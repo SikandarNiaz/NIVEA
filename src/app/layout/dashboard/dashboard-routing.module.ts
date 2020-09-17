@@ -34,7 +34,10 @@ import { MerchandiserPlannedCallsComponent } from './innerComponents/merchandise
 import { DashboardTableauComponent } from './Tableau/dashboard-tableau/dashboard-tableau.component';
 import { ProductivityTableauComponent } from './Tableau/productivity-tableau/productivity-tableau.component';
 import { SkuDashboardComponent } from './Tableau/sku-dashboard/sku-dashboard.component';
+import { MerchandiserScoreComponent } from './innerComponents/merchandiser-score/merchandiser-score.component';
 import { VoErrorReportComponent } from './innerComponents/vo-error-report/vo-error-report.component';
+import { MerchandiserWiseScoreComponent } from './innerComponents/merchandiser-wise-score/merchandiser-wise-score.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -71,8 +74,10 @@ const routes: Routes = [
             {path: 'dashboard-tableau', component: DashboardTableauComponent},
             {path: 'productivity-tableau', component: ProductivityTableauComponent},
             {path: 'sku-dashboard', component: SkuDashboardComponent},
-            {path: 'vo_error_report', component: VoErrorReportComponent}
-
+            { path: 'merchandiser_score', component: MerchandiserScoreComponent },
+            { path: 'vo_error_report', component: VoErrorReportComponent},
+            { path: 'merchandiser_wise_score', component: MerchandiserWiseScoreComponent },
+            { path: 'merchandiser_score/:surveyorId/:startDate/:endDate', component: MerchandiserScoreComponent }
 
 
         ]

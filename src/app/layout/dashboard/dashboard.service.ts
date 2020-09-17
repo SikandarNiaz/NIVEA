@@ -393,4 +393,18 @@ export class DashboardService {
     const body = this.UrlEncodeMaker(obj);
     return this.http.post(this.ip + 'tableauTicket',  body, this.httpOptions);
   }
+
+
+  getMerchandiserScore(obj) {
+
+    const urlEncode = this.UrlEncodeMaker(obj);
+    const url = this.ip + 'merchandiserScore';
+    return this.http.post(url, urlEncode, this.httpOptions);
+  }
+  getMerchandiserWiseScore(obj) {
+
+    const urlEncode = this.UrlEncodeMaker(obj);
+    const url = this.ip + 'merchandiserWiseScore';
+    return this.http.post(url, urlEncode, this.httpOptions);
+  }
 }
