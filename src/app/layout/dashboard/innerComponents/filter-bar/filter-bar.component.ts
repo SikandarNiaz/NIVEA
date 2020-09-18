@@ -342,6 +342,7 @@ export class FilterBarComponent implements OnInit {
         if (data) {
         this.response = data;
         if (this.response.length > 0) {
+          this.showCount('show');
           this.loadingData = false;
           this.toastr.info(this.response, 'Info');
           }
