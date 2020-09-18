@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
 
 // doughnut chart
-public doughnutChartLabels: any[] = ['NIVEA', 'Competition', ];
+public doughnutChartLabels: any[] = [localStorage.getItem('projectType'), 'Competition', ];
   public doughnutChartData: any = [
     [350, 450]
   ];

@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('menu', JSON.stringify(res.list));
             localStorage.setItem('Reevaluator', res.ReEvaluator);
             localStorage.setItem('Evaluator', res.Evaluator);
+            localStorage.setItem('projectType', res.projectType);
             // tslint:disable-next-line:triple-equals
             if (res.user.typeID == res.Evaluator || res.user.typeID == res.ReEvaluator) {
             this.router.navigate(['/dashboard/merchandiser_List']);
