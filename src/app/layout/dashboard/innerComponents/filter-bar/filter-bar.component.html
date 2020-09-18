@@ -4,19 +4,22 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
 
         </mat-card-title>
         <section class="example-section">
 
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -38,7 +41,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
 
         </mat-card-title>
         <section class="example-section">
@@ -51,7 +55,8 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
 
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
@@ -72,13 +77,16 @@
 
             <mat-form-field *ngIf="channels.length>0" class="example-margin mr-10-IMP">
                 <!-- {{selectedChannel |json }} -->
-                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple #channelSelect="ngModel" [compareWith]="equals">
-                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
+                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple
+                    #channelSelect="ngModel" [compareWith]="equals">
+                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button
+                            class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
                             Select All
-                          </button>
-                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm" (click)="deselectAll(channelSelect)">
+                        </button>
+                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm"
+                            (click)="deselectAll(channelSelect)">
                             Deselect All
-                          </button>
+                        </button>
                     </mat-option>
 
                     <mat-option [value]="channel" *ngFor="let channel of channels">{{channel.title}}</mat-option>
@@ -108,12 +116,14 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -121,8 +131,10 @@
         </section>
 
         <section class="example-section">
-            <button *ngIf="router.url==='/dashboard/brand_sku_oos'" [disabled]="selectedChannel.length<1" mat-raised-button color="warn" (click)="getBrandSKUOOS()">Download</button>
-            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is mandatory)</small></span>
+            <button *ngIf="router.url==='/dashboard/brand_sku_oos'" [disabled]="selectedChannel.length<1"
+                mat-raised-button color="warn" (click)="getBrandSKUOOS()">Download</button>
+            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is
+                    mandatory)</small></span>
 
         </section>
 
@@ -136,7 +148,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
 
         </mat-card-title>
         <section class="example-section">
@@ -149,7 +162,8 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
 
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
@@ -170,13 +184,16 @@
 
             <mat-form-field *ngIf="channels.length>0" class="example-margin mr-10-IMP">
                 <!-- {{selectedChannel |json }} -->
-                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple #channelSelect="ngModel" [compareWith]="equals">
-                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
+                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple
+                    #channelSelect="ngModel" [compareWith]="equals">
+                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button
+                            class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
                             Select All
-                          </button>
-                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm" (click)="deselectAll(channelSelect)">
+                        </button>
+                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm"
+                            (click)="deselectAll(channelSelect)">
                             Deselect All
-                          </button>
+                        </button>
                     </mat-option>
 
                     <mat-option [value]="channel" *ngFor="let channel of channels">{{channel.title}}</mat-option>
@@ -206,12 +223,14 @@
             </mat-form-field> -->
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -219,8 +238,10 @@
         </section>
 
         <section class="example-section">
-            <button *ngIf="router.url==='/dashboard/data_abnormality_report'" [disabled]="selectedChannel.length<1" mat-raised-button color="warn" (click)="getAbnormalityReport()">Download</button>
-            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is mandatory)</small></span>
+            <button *ngIf="router.url==='/dashboard/data_abnormality_report'" [disabled]="selectedChannel.length<1"
+                mat-raised-button color="warn" (click)="getAbnormalityReport()">Download</button>
+            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is
+                    mandatory)</small></span>
 
         </section>
 
@@ -234,7 +255,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
 
         </mat-card-title>
         <section class="example-section">
@@ -247,7 +269,8 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
 
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
@@ -268,13 +291,16 @@
 
             <mat-form-field *ngIf="channels.length>0" class="example-margin mr-10-IMP">
                 <!-- {{selectedChannel |json }} -->
-                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple #channelSelect="ngModel" [compareWith]="equals">
-                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
+                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple
+                    #channelSelect="ngModel" [compareWith]="equals">
+                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button
+                            class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
                             Select All
-                          </button>
-                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm" (click)="deselectAll(channelSelect)">
+                        </button>
+                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm"
+                            (click)="deselectAll(channelSelect)">
                             Deselect All
-                          </button>
+                        </button>
                     </mat-option>
 
                     <mat-option [value]="channel" *ngFor="let channel of channels">{{channel.title}}</mat-option>
@@ -304,12 +330,14 @@
             </mat-form-field> -->
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -317,8 +345,10 @@
         </section>
 
         <section class="example-section">
-            <button *ngIf="router.url==='/dashboard/shop_list_report'" [disabled]="selectedChannel.length<1" mat-raised-button color="warn" (click)="getOOSShopListReport()">Download</button>
-            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is mandatory)</small></span>
+            <button *ngIf="router.url==='/dashboard/shop_list_report'" [disabled]="selectedChannel.length<1"
+                mat-raised-button color="warn" (click)="getOOSShopListReport()">Download</button>
+            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is
+                    mandatory)</small></span>
 
         </section>
 
@@ -331,7 +361,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
 
         </mat-card-title>
         <section class="example-section">
@@ -344,7 +375,8 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
 
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
@@ -382,13 +414,16 @@
         <section class="example-section">
             <mat-form-field *ngIf="channels.length>0" class="example-margin mr-10-IMP">
                 <!-- {{selectedChannel |json }} -->
-                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple #channelSelect="ngModel" [compareWith]="equals">
-                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
-                        Select All
-                      </button>
-                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm" (click)="deselectAll(channelSelect)">
-                        Deselect All
-                      </button>
+                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple
+                    #channelSelect="ngModel" [compareWith]="equals">
+                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button
+                            class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
+                            Select All
+                        </button>
+                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm"
+                            (click)="deselectAll(channelSelect)">
+                            Deselect All
+                        </button>
                     </mat-option>
 
                     <mat-option [value]="channel" *ngFor="let channel of channels">{{channel.title}}</mat-option>
@@ -408,12 +443,14 @@
             </mat-form-field> -->
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -422,8 +459,10 @@
         </section>
 
         <section class="example-section">
-            <button *ngIf="router.url==='/dashboard/summary_report'" [disabled]="selectedChannel.length<1" mat-raised-button color="warn" (click)="getOOSSummary()">Download</button>
-            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is mandatory)</small></span>
+            <button *ngIf="router.url==='/dashboard/summary_report'" [disabled]="selectedChannel.length<1"
+                mat-raised-button color="warn" (click)="getOOSSummary()">Download</button>
+            <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is
+                    mandatory)</small></span>
 
         </section>
 
@@ -489,13 +528,16 @@
         <section class="example-section">
             <mat-form-field *ngIf="channels.length>0" class="example-margin mr-10-IMP">
                 <!-- {{selectedChannel |json }} -->
-                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple #channelSelect="ngModel" [compareWith]="equals">
-                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
-                        Select All
-                      </button>
-                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm" (click)="deselectAll(channelSelect)">
-                        Deselect All
-                      </button>
+                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple
+                    #channelSelect="ngModel" [compareWith]="equals">
+                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button
+                            class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
+                            Select All
+                        </button>
+                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm"
+                            (click)="deselectAll(channelSelect)">
+                            Deselect All
+                        </button>
                     </mat-option>
 
                     <mat-option [value]="channel" *ngFor="let channel of channels">{{channel.title}}</mat-option>
@@ -515,12 +557,14 @@
             </mat-form-field> -->
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -529,7 +573,8 @@
         </section>
 
         <section class="example-section">
-            <button *ngIf="router.url==='/dashboard/msl_dashboard'" mat-raised-button color="warn" (click)="getMSLReport()">Download</button>
+            <button *ngIf="router.url==='/dashboard/msl_dashboard'" mat-raised-button color="warn"
+                (click)="getMSLReport()">Download</button>
 
         </section>
 
@@ -544,7 +589,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
 
         </mat-card-title>
         <section class="example-section">
@@ -557,7 +603,8 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
 
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
@@ -595,13 +642,16 @@
         <section class="example-section">
             <mat-form-field *ngIf="channels.length>0" class="example-margin mr-10-IMP">
                 <!-- {{selectedChannel |json }} -->
-                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple #channelSelect="ngModel" [compareWith]="equals">
-                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
-                        Select All
-                      </button>
-                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm" (click)="deselectAll(channelSelect)">
-                        Deselect All
-                      </button>
+                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple
+                    #channelSelect="ngModel" [compareWith]="equals">
+                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button
+                            class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
+                            Select All
+                        </button>
+                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm"
+                            (click)="deselectAll(channelSelect)">
+                            Deselect All
+                        </button>
                     </mat-option>
 
                     <mat-option [value]="channel" *ngFor="let channel of channels">{{channel.title}}</mat-option>
@@ -621,12 +671,14 @@
             </mat-form-field> -->
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -635,7 +687,8 @@
         </section>
 
         <section class="example-section">
-            <button *ngIf="router.url==='/dashboard/productivity_dashboard'" mat-raised-button color="warn" (click)="getProuctivityDashboardReport()">Download</button>
+            <button *ngIf="router.url==='/dashboard/productivity_dashboard'" mat-raised-button color="warn"
+                (click)="getProuctivityDashboardReport()">Download</button>
 
         </section>
 
@@ -659,13 +712,16 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field *ngIf="channels.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple #channelSelect="ngModel" [compareWith]="equals">
-                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
-                                Select All
-                              </button>
-                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm" (click)="deselectAll(channelSelect)">
-                                Deselect All
-                              </button>
+                <mat-select placeholder="Channel" name='channel' [(ngModel)]="selectedChannel" multiple
+                    #channelSelect="ngModel" [compareWith]="equals">
+                    <mat-option disabled="disabled" class="filter-option"> <button mat-raised-button
+                            class="mat-primary fill text-sm" (click)="selectAll(channelSelect, channels)">
+                            Select All
+                        </button>
+                        <button mat-raised-button color="warn" class="ml-1 mat-accent fill text-sm"
+                            (click)="deselectAll(channelSelect)">
+                            Deselect All
+                        </button>
                     </mat-option>
 
                     <mat-option [value]="channel" *ngFor="let channel of channels">{{channel.title}}</mat-option>
@@ -674,7 +730,8 @@
 
 
             <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -707,12 +764,14 @@
         </section> -->
         <section class="example-section">
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -732,7 +791,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
@@ -747,7 +807,8 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="regions.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
                     <ng-container *ngFor="let region of regions">
                         <mat-option *ngIf="region.id!==-1" [value]="region">{{region.title}}</mat-option>
 
@@ -756,7 +817,9 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" (ngModelChange)="getMerchandiserList($event)" [(ngModel)]="startDate" placeholder="Choose date to get merchandisers" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0"
+                    (ngModelChange)="getMerchandiserList($event)" [(ngModel)]="startDate"
+                    placeholder="Choose date to get merchandisers" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
 
@@ -772,7 +835,9 @@
 
         </section>
         <section class="example-section">
-            <button [disabled]="loadingReportMessage" *ngIf="selectedZone.id&& selectedRegion.id && selectedMerchandiser.fullName " mat-raised-button color="warn" (click)="downloadDailyReport()">Download</button>
+            <button [disabled]="loadingReportMessage"
+                *ngIf="selectedZone.id&& selectedRegion.id && selectedMerchandiser.fullName " mat-raised-button
+                color="warn" (click)="downloadDailyReport()">Download</button>
 
 
         </section>
@@ -787,7 +852,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
@@ -826,12 +892,14 @@
                 </mat-select>
             </mat-form-field> -->
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -857,13 +925,15 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
 
             <mat-form-field class="example-margin mr-10-IMP">
-                <mat-select placeholder="Query Type" name='queryList' [(ngModel)]="selectedQuery">
+                <mat-select placeholder="Query Type" name='queryList' [(ngModel)]="selectedQuery"
+                    (ngModelChange)="updateFilterSeting()">
                     <ng-container *ngFor="let query of queryList">
                         <mat-option [value]="query">{{query.title}}</mat-option>
                     </ng-container>
@@ -871,16 +941,32 @@
                 </mat-select>
             </mat-form-field>
 
+            <mat-form-field *ngIf="isZoneFilterEnabled" class="example-margin mr-10-IMP">
+
+                <mat-select placeholder="Zone" name='zone' [(ngModel)]="selectedZone" (ngModelChange)="zoneChange()">
+                    <mat-option [value]="zone" *ngFor="let zone of zones">{{zone.title}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="isRegionFilterEnabled" class="example-margin mr-10-IMP">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
+                    <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
 
 
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -889,7 +975,8 @@
 
         <section class="example-section">
             <!-- [disabled]="selectedChannel.length<1" -->
-            <button [disabled]="!selectedQuery.id" mat-raised-button color="warn" (click)="getDashboardData()">Download</button>
+            <button [disabled]="!selectedQuery.id" mat-raised-button color="warn"
+                (click)="getDashboardData()">Download</button>
             <!-- <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is mandatory)</small></span> -->
 
         </section>
@@ -908,7 +995,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
 
         </mat-card-title>
 
@@ -923,7 +1011,8 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="regions.length>0 && selectedZone.id !==-1" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion" (ngModelChange)="regionChange()">
+                <mat-select placeholder="Region" name='region' [(ngModel)]="selectedRegion"
+                    (ngModelChange)="regionChange()">
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -933,13 +1022,15 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field *ngIf="distributionList.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Distribution List" name='distributionList' [(ngModel)]="selectedDistribution" (ngModelChange)="getTabsData()">
+                <mat-select placeholder="Distribution List" name='distributionList' [(ngModel)]="selectedDistribution"
+                    (ngModelChange)="getTabsData()">
                     <mat-option [value]="dist" *ngFor="let dist of distributionList">{{dist.title}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field *ngIf="storeType.length>0" class="example-margin mr-10-IMP">
-                <mat-select placeholder="Store Type" name='storeType' [(ngModel)]="selectedStoreType" (ngModelChange)="getTabsData()">
+                <mat-select placeholder="Store Type" name='storeType' [(ngModel)]="selectedStoreType"
+                    (ngModelChange)="getTabsData()">
                     <mat-option [value]="store" *ngFor="let store of storeType">{{store}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -947,12 +1038,14 @@
 
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" (ngModelChange)="getTabsData($event,'start')" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    (ngModelChange)="getTabsData($event,'start')" placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" (ngModelChange)="getTabsData($event,'end')" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    (ngModelChange)="getTabsData($event,'end')" placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -967,7 +1060,8 @@
     </mat-card-content>
 </mat-card>
 
-<div *ngIf="!loading && router.url==='/dashboard/productivity_report'" class="mb-20 animated  slideInLeft" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="10px">
+<div *ngIf="!loading && router.url==='/dashboard/productivity_report'" class="mb-20 animated  slideInLeft"
+    fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="10px">
 
     <div class="row web-view">
         <!-- <p>web view</p> -->
@@ -980,45 +1074,52 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div>
-                                <app-stat [bgClass]="'info'" [icon]="'assignment'" [count]="tabsData?.planned" [label]="'Planned'">
+                                <app-stat [bgClass]="'info'" [icon]="'assignment'" [count]="tabsData?.planned"
+                                    [label]="'Planned'">
                                 </app-stat>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <app-stat [bgClass]="'warn'" [icon]="'check_circle'" [count]="tabsData?.completed" [label]="'Visited'">
+                                <app-stat [bgClass]="'warn'" [icon]="'check_circle'" [count]="tabsData?.completed"
+                                    [label]="'Visited'">
                                 </app-stat>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <app-stat [bgClass]="'success'" [icon]="'thumb_up'" [count]="tabsData?.successful" [label]="'Productive'"></app-stat>
+                                <app-stat [bgClass]="'success'" [icon]="'thumb_up'" [count]="tabsData?.successful"
+                                    [label]="'Productive'"></app-stat>
                             </div>
                         </div>
                         <div class="col-md-2">
 
                             <div>
-                                <app-stat [bgClass]="'danger'" [icon]="'thumb_down'" [count]="tabsData?.unsuccessful" [label]="'Un-Successful'"></app-stat>
+                                <app-stat [bgClass]="'danger'" [icon]="'thumb_down'" [count]="tabsData?.unsuccessful"
+                                    [label]="'Un-Successful'"></app-stat>
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div>
-                                <app-stat [bgClass]="'danger'" [icon]="'contact_support'" [count]="tabsData?.unvisited" [label]="'Unvisited'">
+                                <app-stat [bgClass]="'danger'" [icon]="'contact_support'" [count]="tabsData?.unvisited"
+                                    [label]="'Unvisited'">
                                 </app-stat>
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div>
-                                <app-stat [bgClass]="'purple'" [icon]="'check_circle'" [count]="tabsData?.completedPercent" [label]="'Productivity %'"></app-stat>
+                                <app-stat [bgClass]="'purple'" [icon]="'check_circle'"
+                                    [count]="tabsData?.completedPercent" [label]="'Productivity %'"></app-stat>
                             </div>
                         </div>
 
                         <div class="col-md-2">
 
                             <div>
-                                <app-stat [bgClass]="'primary'" [icon]="'thumb_up'" [count]="tabsData?.successfulPercent" [label]="'Successful %'"></app-stat>
+                                <app-stat [bgClass]="'primary'" [icon]="'thumb_up'"
+                                    [count]="tabsData?.successfulPercent" [label]="'Successful %'"></app-stat>
                             </div>
                         </div>
 
@@ -1042,45 +1143,52 @@
                     <div class="row">
                         <div class="col-6 mobile-view-info-tabs">
                             <div>
-                                <app-stat [bgClass]="'info'" [icon]="'assignment'" [count]="tabsData?.planned" [label]="'Planned'">
+                                <app-stat [bgClass]="'info'" [icon]="'assignment'" [count]="tabsData?.planned"
+                                    [label]="'Planned'">
                                 </app-stat>
                             </div>
                         </div>
                         <div class="col-6 mobile-view-info-tabs">
                             <div>
-                                <app-stat [bgClass]="'warn'" [icon]="'check_circle'" [count]="tabsData?.completed" [label]="'Visited'">
+                                <app-stat [bgClass]="'warn'" [icon]="'check_circle'" [count]="tabsData?.completed"
+                                    [label]="'Visited'">
                                 </app-stat>
                             </div>
                         </div>
                         <div class="col-6 mobile-view-info-tabs">
                             <div>
-                                <app-stat [bgClass]="'success'" [icon]="'thumb_up'" [count]="tabsData?.successful" [label]="'Productive'"></app-stat>
+                                <app-stat [bgClass]="'success'" [icon]="'thumb_up'" [count]="tabsData?.successful"
+                                    [label]="'Productive'"></app-stat>
                             </div>
                         </div>
                         <div class="col-6 mobile-view-info-tabs">
 
                             <div>
-                                <app-stat [bgClass]="'danger'" [icon]="'thumb_down'" [count]="tabsData?.unsuccessful" [label]="'Un-Successful'"></app-stat>
+                                <app-stat [bgClass]="'danger'" [icon]="'thumb_down'" [count]="tabsData?.unsuccessful"
+                                    [label]="'Un-Successful'"></app-stat>
                             </div>
                         </div>
 
                         <div class="col-6 mobile-view-info-tabs">
                             <div>
-                                <app-stat [bgClass]="'danger'" [icon]="'contact_support'" [count]="tabsData?.unvisited" [label]="'Unvisited'">
+                                <app-stat [bgClass]="'danger'" [icon]="'contact_support'" [count]="tabsData?.unvisited"
+                                    [label]="'Unvisited'">
                                 </app-stat>
                             </div>
                         </div>
 
                         <div class="col-6 mobile-view-info-tabs">
                             <div>
-                                <app-stat [bgClass]="'purple'" [icon]="'check_circle'" [count]="tabsData?.completedPercent" [label]="'Productivity %'"></app-stat>
+                                <app-stat [bgClass]="'purple'" [icon]="'check_circle'"
+                                    [count]="tabsData?.completedPercent" [label]="'Productivity %'"></app-stat>
                             </div>
                         </div>
 
                         <div class="col-6 mobile-view-info-tabs">
 
                             <div>
-                                <app-stat [bgClass]="'primary'" [icon]="'thumb_up'" [count]="tabsData?.successfulPercent" [label]="'Successful %'"></app-stat>
+                                <app-stat [bgClass]="'primary'" [icon]="'thumb_up'"
+                                    [count]="tabsData?.successfulPercent" [label]="'Successful %'"></app-stat>
                             </div>
                         </div>
 
@@ -1119,55 +1227,55 @@
                         <th scope="col" (click)="sortIt('merchandiser_code')">Merchandiser Code
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('merchandiser_code')}}
-                                        </i>
+                                {{getArrowType('merchandiser_code')}}
+                            </i>
 
                         </th>
                         <th scope="col" (click)="sortIt('merchandiser_name')">Merchandiser Name
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('merchandiser_name')}}
-                                        </i>
+                                {{getArrowType('merchandiser_name')}}
+                            </i>
                         </th>
                         <th scope="col" (click)="sortIt('planned')">Planned
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('planned')}}
-                                        </i>
+                                {{getArrowType('planned')}}
+                            </i>
                         </th>
                         <th scope="col" (click)="sortIt('completed')">Productive
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('completed')}}
-                                        </i>
+                                {{getArrowType('completed')}}
+                            </i>
                         </th>
                         <th scope="col" (click)="sortIt('successfull')">Successful
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('successfull')}}
-                                        </i>
+                                {{getArrowType('successfull')}}
+                            </i>
                         </th>
                         <th scope="col" (click)="sortIt('unsuccessful')">Un-Successful
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('unsuccessful')}}
-                                        </i>
+                                {{getArrowType('unsuccessful')}}
+                            </i>
                         </th>
                         <th scope="col" (click)="sortIt('unvisited')" style="background:#F12E2B;color: white">Unvisited
                             <br>
                             <i class="material-icons arrow" style="color:white !important">
-                                        {{getArrowType('unvisited')}}
-                                        </i></th>
+                                {{getArrowType('unvisited')}}
+                            </i></th>
                         <th scope="col" (click)="sortIt('completed_percent')">Productivity <strong>%</strong>
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('completed_percent')}}
-                                        </i></th>
+                                {{getArrowType('completed_percent')}}
+                            </i></th>
                         <th scope="col" (click)="sortIt('successful_percent')">Successful <strong>%</strong>
                             <br>
                             <i class="material-icons arrow">
-                                        {{getArrowType('successful_percent')}}
-                                        </i></th>
+                                {{getArrowType('successful_percent')}}
+                            </i></th>
 
 
 
@@ -1183,7 +1291,10 @@
 
                             <td>{{item.planned}}</td>
                             <td class="a-link" *ngIf="item.completed!=0" title="Completed">
-                                <a class="a-link" target="_blank" title="view shop details" [routerLink]="['/dashboard/shop_detail',item.id]" [queryParams]="{'id':item.id,'remark_id':-1}" queryParamsHandling="merge">{{item.completed}}</a>
+                                <a class="a-link" target="_blank" title="view shop details"
+                                    [routerLink]="['/dashboard/shop_detail',item.id]"
+                                    [queryParams]="{'id':item.id,'remark_id':-1}"
+                                    queryParamsHandling="merge">{{item.completed}}</a>
 
                             </td>
                             <td *ngIf="item.completed==0">
@@ -1191,7 +1302,10 @@
 
                             </td>
                             <td class="a-link" *ngIf="item.successfull!=0" title="Successful">
-                                <a class="a-link" target="_blank" title="view shop details" [routerLink]="['/dashboard/shop_detail',item.id]" [queryParams]="{'id':item.id,'remark_id':1}" queryParamsHandling="merge"> {{item.successfull}}</a>
+                                <a class="a-link" target="_blank" title="view shop details"
+                                    [routerLink]="['/dashboard/shop_detail',item.id]"
+                                    [queryParams]="{'id':item.id,'remark_id':1}" queryParamsHandling="merge">
+                                    {{item.successfull}}</a>
 
                             </td>
                             <td *ngIf="item.successfull==0">
@@ -1200,7 +1314,10 @@
                             </td>
 
                             <td class="a-link" *ngIf="item.unsuccessful!=0" title="Un-Successful">
-                                <a class="a-link" target="_blank" title="view shop details" [routerLink]="['/dashboard/shop_detail',item.id]" [queryParams]="{'id':item.id,'remark_id':0}" queryParamsHandling="merge"> {{item.unsuccessful}}</a>
+                                <a class="a-link" target="_blank" title="view shop details"
+                                    [routerLink]="['/dashboard/shop_detail',item.id]"
+                                    [queryParams]="{'id':item.id,'remark_id':0}" queryParamsHandling="merge">
+                                    {{item.unsuccessful}}</a>
 
                             </td>
                             <td *ngIf="item.unsuccessful==0">
@@ -1237,55 +1354,55 @@
                     <th scope="col" (click)="sortIt('merchandiser_code')">Merchandiser Code
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('merchandiser_code')}}
-                                                </i>
+                            {{getArrowType('merchandiser_code')}}
+                        </i>
 
                     </th>
                     <th scope="col" (click)="sortIt('merchandiser_name')">Merchandiser Name
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('merchandiser_name')}}
-                                                </i>
+                            {{getArrowType('merchandiser_name')}}
+                        </i>
                     </th>
                     <th scope="col" (click)="sortIt('planned')">Planned
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('planned')}}
-                                                </i>
+                            {{getArrowType('planned')}}
+                        </i>
                     </th>
                     <th scope="col" (click)="sortIt('completed')">Productive
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('completed')}}
-                                                </i>
+                            {{getArrowType('completed')}}
+                        </i>
                     </th>
                     <th scope="col" (click)="sortIt('successfull')">Successful
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('successfull')}}
-                                                </i>
+                            {{getArrowType('successfull')}}
+                        </i>
                     </th>
                     <th scope="col" (click)="sortIt('unsuccessful')">Un-Successful
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('unsuccessful')}}
-                                                </i>
+                            {{getArrowType('unsuccessful')}}
+                        </i>
                     </th>
                     <th scope="col" (click)="sortIt('unvisited')" style="background:#F12E2B;color: white">Unvisited
                         <br>
                         <i class="material-icons arrow" style="color:white !important">
-                                                {{getArrowType('unvisited')}}
-                                                </i></th>
+                            {{getArrowType('unvisited')}}
+                        </i></th>
                     <th scope="col" (click)="sortIt('completed_percent')">Productivity <strong>%</strong>
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('completed_percent')}}
-                                                </i></th>
+                            {{getArrowType('completed_percent')}}
+                        </i></th>
                     <th scope="col" (click)="sortIt('successful_percent')">Successful <strong>%</strong>
                         <br>
                         <i class="material-icons arrow">
-                                                {{getArrowType('successful_percent')}}
-                                                </i></th>
+                            {{getArrowType('successful_percent')}}
+                        </i></th>
 
 
 
@@ -1301,7 +1418,10 @@
 
                         <td>{{item.planned}}</td>
                         <td class="a-link" *ngIf="item.completed!=0" title="Completed">
-                            <a class="a-link" target="_blank" title="view shop details" [routerLink]="['/dashboard/shop_detail',item.id]" [queryParams]="{'id':item.id,'remark_id':-1}" queryParamsHandling="merge">{{item.completed}}</a>
+                            <a class="a-link" target="_blank" title="view shop details"
+                                [routerLink]="['/dashboard/shop_detail',item.id]"
+                                [queryParams]="{'id':item.id,'remark_id':-1}"
+                                queryParamsHandling="merge">{{item.completed}}</a>
 
                         </td>
                         <td *ngIf="item.completed==0">
@@ -1309,7 +1429,10 @@
 
                         </td>
                         <td class="a-link" *ngIf="item.successfull!=0" title="Successful">
-                            <a class="a-link" target="_blank" title="view shop details" [routerLink]="['/dashboard/shop_detail',item.id]" [queryParams]="{'id':item.id,'remark_id':1}" queryParamsHandling="merge"> {{item.successfull}}</a>
+                            <a class="a-link" target="_blank" title="view shop details"
+                                [routerLink]="['/dashboard/shop_detail',item.id]"
+                                [queryParams]="{'id':item.id,'remark_id':1}" queryParamsHandling="merge">
+                                {{item.successfull}}</a>
 
                         </td>
                         <td *ngIf="item.successfull==0">
@@ -1318,7 +1441,10 @@
                         </td>
 
                         <td class="a-link" *ngIf="item.unsuccessful!=0" title="Un-Successful">
-                            <a class="a-link" target="_blank" title="view shop details" [routerLink]="['/dashboard/shop_detail',item.id]" [queryParams]="{'id':item.id,'remark_id':0}" queryParamsHandling="merge"> {{item.unsuccessful}}</a>
+                            <a class="a-link" target="_blank" title="view shop details"
+                                [routerLink]="['/dashboard/shop_detail',item.id]"
+                                [queryParams]="{'id':item.id,'remark_id':0}" queryParamsHandling="merge">
+                                {{item.unsuccessful}}</a>
 
                         </td>
                         <td *ngIf="item.unsuccessful==0">
@@ -1363,7 +1489,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
@@ -1402,12 +1529,14 @@
                 </mat-select>
             </mat-form-field> -->
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -1439,7 +1568,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
@@ -1477,12 +1607,14 @@
                 </mat-select>
             </mat-form-field> -->
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -1508,7 +1640,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
@@ -1547,12 +1680,14 @@
                 </mat-select>
             </mat-form-field> -->
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -1582,12 +1717,14 @@
         </mat-card-title>
         <section class="example-section">
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -1612,66 +1749,68 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            </mat-card-title>
+        </mat-card-title>
         <section class="example-section">
             <form (ngSubmit)="uploadData(form.value)" [formGroup]="form" enctype="multipart/form-data">
-            <mat-form-field class="example-margin mr-10-IMP">
-                <mat-select placeholder="Region" name='cityId' [formControl]="selectedRegionUp" [(ngModel)]="regionId" (ngModelChange)="showCount('show')" >
-                    <ng-container *ngFor="let region of regions">
-                        <mat-option [value]="region.id">{{region.title}}</mat-option>
-                    </ng-container>
-                    
+                <mat-form-field class="example-margin mr-10-IMP">
+                    <mat-select placeholder="Region" name='cityId' [formControl]="selectedRegionUp"
+                        [(ngModel)]="regionId" (ngModelChange)="showCount('show')">
+                        <ng-container *ngFor="let region of regions">
+                            <mat-option [value]="region.id">{{region.title}}</mat-option>
+                        </ng-container>
 
-                </mat-select>
-            </mat-form-field>
-            
-            <mat-form-field class="example-margin mr-10-IMP">
-                <mat-select placeholder="Add Surveyor" name='newSurveyor'  [formControl]="selectedOption">
+
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-margin mr-10-IMP">
+                    <mat-select placeholder="Add Surveyor" name='newSurveyor' [formControl]="selectedOption">
                         <mat-option [value]="op" *ngFor="let op of options">{{op}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+                    </mat-select>
+                </mat-form-field>
 
 
-            <input #fileInput (change)="onFileChange($event)" id="avatar" type="file">
-            <section class="example-section">
-                <button type="submit" mat-raised-button color="warn"> Upload</button>
-            </section>
+                <input #fileInput (change)="onFileChange($event)" id="avatar" type="file">
+                <section class="example-section">
+                    <button type="submit" mat-raised-button color="warn"> Upload</button>
+                </section>
 
 
 
-        </form>
+            </form>
 
-    </section>
+        </section>
 
     </mat-card-content>
 
-<mat-card-content>
-    <table class="table" *ngIf="shopWiseCount.length>0">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Surveyor Code</th>
-                <th scope="col">Surveyor Name</th>
-                <th scope="col">Shops on Route</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let count of shopWiseCount; let i = index">
-                <th scope="col">{{i+1}}</th>
-                <td>{{count?.m_code}}</td>
-                <td>{{count?.full_name}}</td>
-                <td>{{count?.shops_on_route}}</td>
-                <td>
-                    <button class="btn btn-danger" title="Click to remove Shops from Routes" (click)="deleteRoutes(count?.surveyor_id, 'delete')">
-                        <i class="fa fa-trash"></i>
-                      </button>
+    <mat-card-content>
+        <table class="table" *ngIf="shopWiseCount.length>0">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Surveyor Code</th>
+                    <th scope="col">Surveyor Name</th>
+                    <th scope="col">Shops on Route</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let count of shopWiseCount; let i = index">
+                    <th scope="col">{{i+1}}</th>
+                    <td>{{count?.m_code}}</td>
+                    <td>{{count?.full_name}}</td>
+                    <td>{{count?.shops_on_route}}</td>
+                    <td>
+                        <button class="btn btn-danger" title="Click to remove Shops from Routes"
+                            (click)="deleteRoutes(count?.surveyor_id, 'delete')">
+                            <i class="fa fa-trash"></i>
+                        </button>
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</mat-card-content>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
 
 </mat-card>
 
@@ -1681,7 +1820,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
@@ -1696,12 +1836,14 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -1710,7 +1852,8 @@
 
         <section class="example-section">
             <!-- [disabled]="selectedChannel.length<1" -->
-            <button [disabled]="!selectedQuery.id" mat-raised-button color="warn" (click)="getReportData()">Download</button>
+            <button [disabled]="!selectedQuery.id" mat-raised-button color="warn"
+                (click)="getReportData()">Download</button>
             <!-- <span *ngIf="selectedChannel.length<1" class="channel-message"><small>(channel selection is mandatory)</small></span> -->
 
         </section>
@@ -1727,7 +1870,8 @@
     <mat-card-content>
         <mat-card-title>
             {{title| uppercase}} <i color="warn" [ngClass]="{'fa fa-cog fa-spin':loadingData}"></i>
-            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is being prepared for download</small>
+            <small style="color:lightseagreen !important" class="mtb-5-IMP" *ngIf="loadingReportMessage">Your file is
+                being prepared for download</small>
         </mat-card-title>
         <section class="example-section">
 
@@ -1752,12 +1896,14 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate" placeholder="Choose a start date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker0" [(ngModel)]="startDate"
+                    placeholder="Choose a start date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
                 <mat-datepicker #picker0></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width mr-10-IMP">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate" placeholder="Choose a end date" readonly>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" [(ngModel)]="endDate"
+                    placeholder="Choose a end date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>

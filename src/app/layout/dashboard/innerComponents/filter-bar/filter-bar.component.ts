@@ -107,6 +107,8 @@ export class FilterBarComponent implements OnInit {
   sortBy: 'completed';
   selectedRemark = 0;
   remarksList = [];
+  isZoneFilterEnabled = false;
+  isRegionFilterEnabled = false;
 
   // @ViewChild('remarksModal') remarksModal: ModalDirective;
   // showRemarksModal(){this.remarksModal.show(); }
@@ -363,7 +365,9 @@ export class FilterBarComponent implements OnInit {
       const obj = {
         queryId: this.selectedQuery.id,
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
-        endDate: moment(this.endDate).format('YYYY-MM-DD')
+        endDate: moment(this.endDate).format('YYYY-MM-DD'),
+        zoneId: this.selectedZone.id,
+        regionId: this.selectedRegion.id,
       };
 
       const url = 'dashboard-data';
@@ -1312,6 +1316,16 @@ export class FilterBarComponent implements OnInit {
       this.clearLoading();
       this.toastr.info('End date must be greater than start date', 'Date Selection');
     }
+  }
+
+  updateFilterSeting() {
+    if(this.selectedQuery.zone_id == 'Y') {
+      this.isZoneFilterEnabled = true;
+    }
+    if(this.selectedQuery.region_id == 'Y') {
+      this.isRegionFilterEnabled = true;
+    }
+
   }
 
 
