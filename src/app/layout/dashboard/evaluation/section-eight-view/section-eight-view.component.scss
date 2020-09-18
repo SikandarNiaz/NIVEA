@@ -14,6 +14,13 @@ div.ngxImageZoomContainer {
     word-break: break-all;
 }
 
+input {
+    outline: none !important;
+    outline-style: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+
 // .tableFixHead thead th {
 //     position: sticky;
 //     top: 0;
@@ -38,7 +45,7 @@ div.ngxImageZoomContainer {
 }
 
 table {
-    font-size: 15px !important;
+    font-size: 12px !important;
     line-height: 0px !important
 }
 .cat {
@@ -46,5 +53,5 @@ table {
 }
 
 .background-color {
-    background-color: lightblue !important
+    background-color:  #00A647 !important
 }
