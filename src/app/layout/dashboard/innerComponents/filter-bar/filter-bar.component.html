@@ -1016,6 +1016,15 @@
                     <mat-option [value]="region" *ngFor="let region of regions">{{region.title}}</mat-option>
                 </mat-select>
             </mat-form-field>
+
+            <mat-form-field *ngIf="shops" class="example-margin mr-10-IMP">
+                <mat-select placeholder="Shops" name='shops' [(ngModel)]="selectedShop"
+                    (ngModelChange)="getTabsData()">
+                    <ngx-mat-select-search [placeholderLabel]="'Find Shop...'" [noEntriesFoundLabel]="'No Matching Shop Found'" 
+                    [(ngModel)]="selectedKeyword" (ngModelChange)="filterItem(selectedKeyword)"></ngx-mat-select-search>
+                    <mat-option [value]="shop" *ngFor="let shop of filteredShops">{{shop.shop_name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
             <mat-form-field *ngIf="cities.length>0" class="example-margin mr-10-IMP">
                 <mat-select placeholder="City" name='city' [(ngModel)]="selectedCity" (ngModelChange)="getTabsData()">
                     <mat-option [value]="city" *ngFor="let city of cities">{{city.title}}</mat-option>
@@ -1027,14 +1036,14 @@
                     <mat-option [value]="dist" *ngFor="let dist of distributionList">{{dist.title}}</mat-option>
                 </mat-select>
             </mat-form-field>
-
+            <ng-container *ngIf="projectType=='CBL'">
             <mat-form-field *ngIf="storeType.length>0" class="example-margin mr-10-IMP">
                 <mat-select placeholder="Store Type" name='storeType' [(ngModel)]="selectedStoreType"
                     (ngModelChange)="getTabsData()">
                     <mat-option [value]="store" *ngFor="let store of storeType">{{store}}</mat-option>
                 </mat-select>
             </mat-form-field>
-
+        </ng-container>
 
 
             <mat-form-field class="example-full-width mr-10-IMP">

@@ -24,7 +24,9 @@ import { positionElements } from 'ngx-bootstrap';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private httpService: DashboardService, private router: Router,private toastr: ToastrService) { }
+  constructor(private httpService: DashboardService, private router: Router,private toastr: ToastrService) {
+
+  }
 
   tabsData: any = [];
   loading = true;
@@ -240,6 +242,7 @@ public chartClicked( e: any ): void {
         const res: any = data;
         if (res.regionList) {
           this.regions = res.regionList;
+          this.selectedRegion=this.regions[0]
           // localStorage.setItem('regionList', JSON.stringify(res.regionList));
         }
         if (!res.regionList) {

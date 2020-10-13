@@ -58,6 +58,7 @@ import { SkuDashboardComponent } from './Tableau/sku-dashboard/sku-dashboard.com
 import { VoErrorReportComponent } from './innerComponents/vo-error-report/vo-error-report.component';
 import { MerchandiserScoreComponent } from './innerComponents/merchandiser-score/merchandiser-score.component';
 import { MerchandiserWiseScoreComponent } from './innerComponents/merchandiser-wise-score/merchandiser-wise-score.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
     imports: [
         FormsModule,
@@ -87,7 +88,8 @@ import { MerchandiserWiseScoreComponent } from './innerComponents/merchandiser-w
 MatCheckboxModule,
 BsDropdownModule.forRoot(),
 MatMenuModule,
-ReactiveFormsModule
+ReactiveFormsModule,
+NgxMatSelectSearchModule
 
 
 

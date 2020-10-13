@@ -29,6 +29,7 @@ export class FilterBarComponent implements OnInit {
     public formBuilder: FormBuilder
   ) {
     this.zones = JSON.parse(localStorage.getItem('zoneList'));
+    this.selectedZone=this.zones[0];
     this.categoryList = JSON.parse(localStorage.getItem('assetList'));
     this.channels = JSON.parse(localStorage.getItem('channelList'));
     // this.regions = JSON.parse(localStorage.getItem('regionList'));
@@ -91,6 +92,12 @@ export class FilterBarComponent implements OnInit {
   response: any = '';
   shopWiseCount: any = [];
 
+  selectedKeyword='';
+  filteredShops: any=[];
+
+  projectType:any;
+  selectedShop:any={};
+  shops:any=[];
   queryList: any = [];
   selectedQuery: any = {};
 
@@ -154,10 +161,15 @@ export class FilterBarComponent implements OnInit {
     this.mustHave = this.dataService.getYesNo();
     this.mustHaveAll = this.dataService.getYesNoAll();
     this.impactTypeList = this.dataService.getImpactType();
+    this.projectType=localStorage.getItem('projectType');
     if (this.router.url !== '/dashboard/raw_data') { this.getZone();
     }
 
-    if (this.router.url === '/dashboard/productivity_report' || this.router.url === '/dashboard/merchandiser_attendance') { this.getTabsData(); }
+    if (this.router.url === '/dashboard/productivity_report' || this.router.url === '/dashboard/merchandiser_attendance') { this.getTabsData(); 
+      if(this.router.url === '/dashboard/productivity_report'){
+        this.getShops();
+      }
+    }
 
     if (this.router.url === '/dashboard/raw_data') { this.getQueryTypeList(); }
 
@@ -430,8 +442,13 @@ export class FilterBarComponent implements OnInit {
     this.loadingData = true;
     // this.regions = [];
     // this.channels = [];
+    this.selectedShop={};
+    this.selectedRegion={};
     if (this.router.url === '/dashboard/productivity_report' || this.router.url === '/dashboard/merchandiser_attendance') {
       this.getTabsData();
+      if(this.projectType=='Nivea'){
+        this.getShops();
+      }
     }
 
     this.httpService.getRegion(this.selectedZone.id).subscribe(
@@ -455,7 +472,28 @@ export class FilterBarComponent implements OnInit {
     );
   }
 
+getShops(){
+this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id || -1).subscribe(
+      data => {
+        const res: any = data;
+        if (res) {
+          this.shops = res;
+          this.filteredShops=this.shops;
+        } else {
+          this.clearLoading();
 
+          this.toastr.info('Something went wrong,Please retry', 'Connectivity Message');
+        }
+
+        setTimeout(() => {
+          this.loadingData = false;
+        }, 500);
+      },
+      error => {
+        this.clearLoading();
+      }
+    );
+    }
 
 
   getAllRegions() {
@@ -487,12 +525,16 @@ export class FilterBarComponent implements OnInit {
     this.selectedArea = {};
     this.selectedCity = {};
     this.selectedDistribution = {};
+    this.selectedShop={};
     if (this.router.url === '/dashboard/daily_visit_report') {
       this.getMerchandiserList(this.startDate);
     }
 
     if (this.router.url === '/dashboard/productivity_report' || this.router.url === '/dashboard/merchandiser_attendance') {
       this.getTabsData();
+      if(this.projectType=='NIVEA'){
+        this.getShops();
+      }
     }
     if (this.router.url !== '/dashboard/daily_visit_report') {
       this.loadingData = true;
@@ -1204,6 +1246,7 @@ export class FilterBarComponent implements OnInit {
       startDate: startDate,
       endDate: endDate,
       cityId: this.selectedCity.id || -1,
+      shopId:this.selectedShop.id || -1,
       distributionId: this.selectedDistribution.id || -1,
       storeType: this.selectedStoreType || null,
       channelId: -1
@@ -1231,6 +1274,7 @@ export class FilterBarComponent implements OnInit {
     );
   }
   getTableData(obj) {
+    console.log(obj);
     this.httpService.merchandiserShopListCBL(obj).subscribe(
       data => {
         console.log(data, 'table data');
@@ -1329,5 +1373,28 @@ export class FilterBarComponent implements OnInit {
 
   }
 
+  // FindShop(keyword)
+  // {
+  //   console.log('here');
+  //   if (!keyword) {
+  //     this.shops.next(this.shops.slice());
+  //     return;
+  //   } else {
+  //     keyword = keyword.toLowerCase();
+  //   }
+  //   keyword.next(
+  //     this.shops.filter(shop => shop.shop_name.toLowerCase().indexOf(keyword) > -1)
+  //   );
 
+  // }
+
+ filterItem(value){
+   if(value){
+     value=value.toLowerCase();
+   }
+    this.filteredShops = Object.assign([], this.shops).filter(
+       item => item.shop_name.toLowerCase().indexOf(value.toLowerCase()) > -1
+    )
+ }
+ 
 }

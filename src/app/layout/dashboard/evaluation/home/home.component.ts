@@ -196,8 +196,9 @@ export class HomeComponent implements OnInit {
          this.checkEvaluatedRemarks();
          this.setRemarksForReEvaluation();
          }
-
+         if(this.userType==this.evaluatorRole || this.userType==this.reevaluatorRole){
           this.isEditable = true;
+         }
           if (this.data.criteria) { this.calculateScore(); }
          }
 

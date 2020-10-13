@@ -139,9 +139,9 @@ export class DashboardService {
   }
 
   merchandiserShopListCBL(obj) {
-    const body = `zoneId=${obj.zoneId}&regionId=${obj.regionId}&endDate=${obj.endDate}&startDate=${obj.startDate}&distributionId=${obj.distributionId}&cityId=${obj.cityId}&storeType=${obj.storeType}&channelId=${obj.channelId}`;
-    const url = this.ip + 'merchandiserShopListCBL';
-    return this.http.post(url, body, this.httpOptions);
+    const urlEncode = this.UrlEncodeMaker(obj);
+        const url = this.ip + 'merchandiserShopListCBL';
+    return this.http.post(url, urlEncode, this.httpOptions);
     // .pipe(
     //   timeout(60000),
     //   catchError(e => {
@@ -228,6 +228,14 @@ export class DashboardService {
     const filter = JSON.stringify({act: 13});
     return this.http.post(url, filter);
 
+  }
+
+
+  getAllShops(zoneId, regionId) {
+
+    const filter = JSON.stringify({act: 16, zoneId: zoneId, regionId: regionId});
+    const url = this.ip + 'loadFilters';
+    return this.http.post(url, filter);
   }
 
   getCities(regionId) {

@@ -28,6 +28,7 @@ import { SectionSevenViewComponent } from './section-seven-view/section-seven-vi
 import { SectionNineViewComponent } from './section-nine-view/section-nine-view.component';
 import { SectionEightViewComponent } from './section-eight-view/section-eight-view.component';
 import { SectionTenViewComponent } from './section-ten-view/section-ten-view.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
   declarations: [HomeComponent, DetailsPageComponent, MainPageComponent,
     SectionOneViewComponent, SectionTwoViewComponent,
@@ -49,7 +50,8 @@ import { SectionTenViewComponent } from './section-ten-view/section-ten-view.com
     Ng5SliderModule,
     MatInputModule,
     MatFormFieldModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgxMatSelectSearchModule
   ]
 })
 export class EvaluationModule { }
