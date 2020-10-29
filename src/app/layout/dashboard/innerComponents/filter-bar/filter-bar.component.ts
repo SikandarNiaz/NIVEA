@@ -1397,4 +1397,48 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
     )
  }
  
+ uniqueBasedReport() {
+  if (this.endDate >= this.startDate) {
+    this.loadingData = true;
+    this.loadingReportMessage = true;
+    const obj = {
+      startDate: moment(this.startDate).format("YYYY-MM-DD"),
+      endDate: moment(this.endDate).format("YYYY-MM-DD"),
+      zoneId: this.selectedZone.id || -1,
+      regionId: this.selectedRegion.id || -1,
+    };
+
+    const url = "capturedAbnormalUnvisited";
+    const body = this.httpService.UrlEncodeMaker(obj);
+    this.httpService.getKeyForProductivityReport(body, url).subscribe(
+      (data) => {
+        const res: any = data;
+
+        if (res) {
+          const obj2 = {
+            key: res.key,
+            fileType: "json.fileType",
+          };
+          const url = "downloadReport";
+          this.getproductivityDownload(obj2, url);
+        } else {
+          this.clearLoading();
+
+          this.toastr.info(
+            "Something went wrong,Please retry",
+            "Connectivity Message"
+          );
+        }
+      },
+      (error) => {
+        this.clearLoading();
+      }
+    );
+  } else {
+    this.clearLoading();
+    this.toastr.info("Plz Enter a Valid Date and Type", "Required Fields");
+  }
+}
+
+
 }
