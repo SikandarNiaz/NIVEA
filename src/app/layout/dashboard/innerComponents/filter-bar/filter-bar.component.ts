@@ -241,7 +241,7 @@ export class FilterBarComponent implements OnInit {
 
 
   getQueryTypeList() {
-    this.httpService.getQueryTypeList().subscribe(
+    this.httpService.getQueryTypeList(-1).subscribe(
       data => {
         console.log('qurry list', data);
         if (data) { this.queryList = data; }
@@ -257,8 +257,16 @@ export class FilterBarComponent implements OnInit {
       this.loadingData = true;
       this.loadingReportMessage = true;
       const obj = {
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
         channelId: this.arrayMaker(this.selectedChannel),
@@ -301,8 +309,16 @@ export class FilterBarComponent implements OnInit {
       this.loadingData = true;
       this.loadingReportMessage = true;
       const obj = {
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
         channelId: this.arrayMaker(this.selectedChannel),
@@ -379,8 +395,16 @@ export class FilterBarComponent implements OnInit {
         queryId: this.selectedQuery.id,
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
-        zoneId: this.selectedZone.id,
-        regionId: this.selectedRegion.id,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
       };
 
       const url = 'dashboard-data';
@@ -614,8 +638,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       const obj = {
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         // channelId: this.arrayMaker(this.selectedChannel),
       };
 
@@ -656,8 +688,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       const obj = {
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         // channelId: this.arrayMaker(this.selectedChannel),
       };
 
@@ -698,8 +738,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       const obj = {
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         // channelId: this.arrayMaker(this.selectedChannel),
       };
 
@@ -740,8 +788,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       const obj = {
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         // channelId: this.arrayMaker(this.selectedChannel),
       };
 
@@ -780,8 +836,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       const obj = {
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         channelId: this.selectedChannel.id || -1,
         areaId: '',
         distId: '',
@@ -1044,8 +1108,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       this.loadingData = true;
       this.loadingReportMessage = true;
       const obj = {
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         cityId: this.selectedCity.id || -1,
         areaId: this.selectedArea.id || -1,
         channelId: this.arrayMaker(this.selectedChannel),
@@ -1111,8 +1183,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       this.loadingData = true;
       this.loadingReportMessage = true;
       const obj = {
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         cityId: this.selectedCity.id || -1,
         areaId: this.selectedArea.id || -1,
         channelId: this.arrayMaker(this.selectedChannel),
@@ -1171,8 +1251,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       this.loadingData = true;
       this.loadingReportMessage = true;
       const obj = {
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         cityId: this.selectedCity.id || -1,
         distributionId: this.selectedDistribution.id || -1,
         storeType: this.selectedStoreType || null,
@@ -1241,8 +1329,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
 
     this.loading = true;
     const obj: any = {
-      zoneId: this.selectedZone.id ? this.selectedZone.id : localStorage.getItem('zoneId'),
-      regionId: this.selectedRegion.id ? this.selectedRegion.id : localStorage.getItem('regionId'),
+      zoneId: this.selectedZone.id
+      ? this.selectedZone.id == -1
+        ? localStorage.getItem("zoneId")
+        : this.selectedZone.id
+      : localStorage.getItem("zoneId"),
+    regionId: this.selectedRegion.id
+      ? this.selectedRegion.id == -1
+        ? localStorage.getItem("regionId")
+        : this.selectedRegion.id
+      : localStorage.getItem("regionId"),
       startDate: startDate,
       endDate: endDate,
       cityId: this.selectedCity.id || -1,
@@ -1328,8 +1424,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
       const obj = {
         startDate: moment(this.startDate).format('YYYY-MM-DD'),
         endDate: moment(this.endDate).format('YYYY-MM-DD'),
-        zoneId: this.selectedZone.id || -1,
-        regionId: this.selectedRegion.id || -1,
+        zoneId: this.selectedZone.id
+        ? this.selectedZone.id == -1
+          ? localStorage.getItem("zoneId")
+          : this.selectedZone.id
+        : localStorage.getItem("zoneId"),
+      regionId: this.selectedRegion.id
+        ? this.selectedRegion.id == -1
+          ? localStorage.getItem("regionId")
+          : this.selectedRegion.id
+        : localStorage.getItem("regionId"),
         environment: environment.hash
       };
 
@@ -1404,8 +1508,16 @@ this.httpService.getAllShops(this.selectedZone.id || -1, this.selectedRegion.id 
     const obj = {
       startDate: moment(this.startDate).format("YYYY-MM-DD"),
       endDate: moment(this.endDate).format("YYYY-MM-DD"),
-      zoneId: this.selectedZone.id || -1,
-      regionId: this.selectedRegion.id || -1,
+      zoneId: this.selectedZone.id
+      ? this.selectedZone.id == -1
+        ? localStorage.getItem("zoneId")
+        : this.selectedZone.id
+      : localStorage.getItem("zoneId"),
+    regionId: this.selectedRegion.id
+      ? this.selectedRegion.id == -1
+        ? localStorage.getItem("regionId")
+        : this.selectedRegion.id
+      : localStorage.getItem("regionId"),
     };
 
     const url = "capturedAbnormalUnvisited";
