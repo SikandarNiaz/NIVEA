@@ -165,10 +165,10 @@ export class DashboardService {
     // );
   }
 
-  getQueryTypeList() {
+  getQueryTypeList(reportId) {
     this.user_id = localStorage.getItem("user_id");
 
-    const filter = JSON.stringify({ act: 12, userId: this.user_id });
+    const filter = JSON.stringify({ act: 12, reportId: reportId });
     const url = this.ip + "loadFilters";
     return this.http.post(url, filter);
   }
@@ -430,6 +430,17 @@ export class DashboardService {
 
   getEvaluatorList() {
     const filter = JSON.stringify({ act: 15 });
+    const url = this.ip + "loadFilters";
+    return this.http.post(url, filter);
+  }
+
+  getZoneByCluster(clusterId) {
+    this.user_id = localStorage.getItem("user_id");
+    const filter = JSON.stringify({
+      act: 18,
+      userId: this.user_id,
+      clusterId: clusterId,
+    });
     const url = this.ip + "loadFilters";
     return this.http.post(url, filter);
   }
